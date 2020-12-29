@@ -10,20 +10,20 @@ fun main() {
     }
      */
     // O (n * lg n)
-    val mapSkill = mapSkill(users)
+    val mapSkill = upperCaseSkills(users)
     print(mapSkill)
 }
 
 
-fun mapSkill(users: List<User>): List<String> {
+fun upperCaseSkills(users: List<User>): List<String> {
     if (users.size == 1) return users[0].skills // get what we need to process
     // dividing
     val mid = users.size / 2
     val lUsers = users.subList(0, mid)
     val rUsers = users.subList(mid, users.size)
-    val skillsLeft = mapSkill(lUsers)
-    val skillsRight = mapSkill(rUsers)
-    // progressing
+    val skillsLeft = upperCaseSkills(lUsers)
+    val skillsRight = upperCaseSkills(rUsers)
+    // processing
     return skillsLeft.map { it.toUpperCase() } + skillsRight.map { it.toUpperCase() }
 }
 
