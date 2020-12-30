@@ -1,5 +1,5 @@
 package heapSort
-
+// O(n lg n)
 fun main() {
     val list = mutableListOf(200, 2, 12, 23, 4, 10, 2, 100, 101, 102)
     heapSort(list)
