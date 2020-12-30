@@ -1,5 +1,7 @@
 package seekMaxSubArray
 
+import kotlin.random.Random
+
 fun main() {
     val users = listOf(User("serg", 10, listOf("php", "js")), User("august", 21, listOf("java", "c#")))
     /* O(n^2)
@@ -11,10 +13,31 @@ fun main() {
      */
     // O (n * lg n)
     val mapSkill = upperCaseSkills(users)
-    print(mapSkill)
+
+    val workers = List(1000000) { 1 }.map {
+        val jobs = List(100) {1}
+        Worker(it, jobs)
+    }
+
+    val start = System.nanoTime()
+//    var sum = 0
+//    for (worker in workers) {
+//        for (job in worker.jobs) {
+//            sum += job
+//        }
+//    }
+    val sum = summm(workers, 0 , workers.size - 1)
+    println(sum)
+    println((System.nanoTime() - start) / 1000)
 }
 
-
+fun summm(list:List<Worker>, low: Int, high:Int): Int {
+    if (low == high) return list[0].jobs.sum()
+    val mid = (low + high) / 2
+    val l = summm(list, low, mid)
+    val r = summm(list, mid + 1, high)
+    return l + r
+}
 fun upperCaseSkills(users: List<User>): List<String> {
     if (users.size == 1) return users[0].skills // get what we need to process
     // dividing
@@ -32,6 +55,8 @@ class User(private val name: String, private val age: Int, val skills: List<Stri
         println("name is $name, age is $age")
     }
 }
+
+class Worker(val id:Int, val jobs:List<Int>)
 
 
 
