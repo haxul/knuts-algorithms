@@ -11,5 +11,6 @@ def insert_sort(arr):
         arr[i + 1] = key
     return arr
 
+
 result = insert_sort(init_arr)
 print(result)
