@@ -7,7 +7,7 @@ public class Main {
         binTree.add(new Node(25));
         binTree.add(new Node(51));
         binTree.add(new Node(101));
-        System.out.println(binTree.search(new Node(23)));
+        System.out.println(binTree.max().id);
     }
 }
 
@@ -22,9 +22,9 @@ class BinaryTree {
     }
 
     private Node search(Node sNode, Node curNode) {
-        if (curNode == null ) return null;
+        if (curNode == null) return null;
         if (curNode.id == sNode.id) return curNode;
-        if ( sNode.id < curNode.id) return search(sNode, curNode.left);
+        if (sNode.id < curNode.id) return search(sNode, curNode.left);
         else return search(sNode, curNode.right);
     }
 
@@ -40,6 +40,21 @@ class BinaryTree {
         }
     }
 
+    public Node min() {
+        Node curNode = root;
+        while (curNode.left != null) {
+            curNode = curNode.left;
+        }
+        return curNode;
+    }
+
+    public Node max() {
+        Node curNode = root;
+        while (curNode.right != null) {
+            curNode = curNode.right;
+        }
+        return curNode;
+    }
 
     public Node add(Node node) {
         return add(node, root);
