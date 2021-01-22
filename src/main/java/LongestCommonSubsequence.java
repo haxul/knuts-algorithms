@@ -7,10 +7,8 @@ public class LongestCommonSubsequence {
 
         // Following steps build L[m+1][n+1] in bottom up fashion. Note
         // that L[i][j] contains length of LCS of X[0..i-1] and Y[0..j-1]
-        for (int i=0; i<=m; i++)
-        {
-            for (int j=0; j<=n; j++)
-            {
+        for (int i=0; i<=m; i++) {
+            for (int j=0; j<=n; j++) {
                 if (i == 0 || j == 0)
                     L[i][j] = 0;
                 else if (X.charAt(i-1) == Y.charAt(j-1))
@@ -32,12 +30,10 @@ public class LongestCommonSubsequence {
         // one by one store characters in lcs[]
         int i = m;
         int j = n;
-        while (i > 0 && j > 0)
-        {
+        while (i > 0 && j > 0) {
             // If current character in X[] and Y are same, then
             // current character is part of LCS
-            if (X.charAt(i-1) == Y.charAt(j-1))
-            {
+            if (X.charAt(i-1) == Y.charAt(j-1)) {
                 // Put current character in result
                 lcs[index-1] = X.charAt(i-1);
 
@@ -62,8 +58,7 @@ public class LongestCommonSubsequence {
     }
 
     // driver program
-    public static void main (String[] args)
-    {
+    public static void main (String[] args) {
         String X = "AGGTAB";
         String Y = "GXTXAYB";
         int m = X.length();
