@@ -13,16 +13,13 @@ fun main() {
         "E" to listOf("C", "D")
     )
 
-    val q = LinkedList<String>()
-    q.add("A")
-
+    val q = mutableListOf("A");
     search(graph, q)
-
 }
 
-fun search(graph:Map<String, List<String>>, q:LinkedList<String>, checked:MutableMap<String,Boolean> = mutableMapOf()) {
+fun search(graph:Map<String, List<String>>, q:MutableList<String>, checked:MutableMap<String,Boolean> = mutableMapOf()) {
     if (q.size == 0) return
-    val element:String = q.pollFirst()
+    val element:String = q.removeFirst()
     if (checked[element] != null) return search(graph, q, checked)
     checked[element] = true
     println(element)
