@@ -20,10 +20,6 @@ fun main() {
     depthFirstSearch(A, graph)
 }
 
-class Node(val name: String) {
-    var visited = false
-}
-
 
 fun depthFirstSearch(node: Node, graph: Map<Node, List<Node>>) {
     node.visited = true
@@ -33,3 +29,5 @@ fun depthFirstSearch(node: Node, graph: Map<Node, List<Node>>) {
         if (!neighbor.visited) depthFirstSearch(neighbor, graph)
     }
 }
+
+
