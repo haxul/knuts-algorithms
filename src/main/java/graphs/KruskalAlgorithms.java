@@ -78,12 +78,12 @@ class Graph {
         }
         i = 0;
         while (e < vertices - 1) {
-            Edge next_edge = new Edge();
-            next_edge = edge[i++];
-            int x = find(subset, next_edge.src);
-            int y = find(subset, next_edge.dest);
+            Edge nextEdge = new Edge();
+            nextEdge = edge[i++];
+            int x = find(subset, nextEdge.src);
+            int y = find(subset, nextEdge.dest);
             if (x != y) {
-                result[e++] = next_edge;
+                result[e++] = nextEdge;
                 Union(subset, x, y);
             }
         }
