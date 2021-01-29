@@ -9,7 +9,7 @@ public class Main {
 class CreateGraph {
 
     // CreateGraph - it consists of edges
-    class CreateEdge {
+    static class CreateEdge {
         int s, d, w;
 
         CreateEdge() {
@@ -18,7 +18,7 @@ class CreateGraph {
     };
 
     int V, E;
-    CreateEdge edge[];
+    CreateEdge[] edge;
 
     // Creates a graph with V vertices and E edges
     CreateGraph(int v, int e) {
@@ -31,7 +31,7 @@ class CreateGraph {
 
     void BellmanFord(CreateGraph graph, int s) {
         int V = graph.V, E = graph.E;
-        int dist[] = new int[V];
+        int[] dist = new int[V];
 
         // Step 1: fill the distance array and predecessor array
         for (int i = 0; i < V; ++i)
@@ -71,7 +71,7 @@ class CreateGraph {
     }
 
     // Print the solution
-    void printSolution(int dist[], int V) {
+    void printSolution(int[] dist, int V) {
         System.out.println("Vertex Distance from Source");
         for (int i = 0; i < V; ++i)
             System.out.println(i + "\t\t" + dist[i]);
