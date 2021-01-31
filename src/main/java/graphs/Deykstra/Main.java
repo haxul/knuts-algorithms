@@ -19,6 +19,7 @@ public class Main {
         weightGraph.put("fin", Map.of());
 
         Map<String, Integer> costs = new HashMap<>();
+        costs.put("start", 0);
         costs.put("a", 6);
         costs.put("b", 2);
         costs.put("fin", Integer.MAX_VALUE);
@@ -30,6 +31,7 @@ public class Main {
 
         var processed = new LinkedList<String>();
         searchShortestWay(parents, weightGraph, costs, processed);
+        System.out.println(costs);
 
     }
 
